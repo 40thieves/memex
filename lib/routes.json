@@ -1,0 +1,19 @@
+{
+	"/": {
+		"controller": "links",
+		"callback": "getAll",
+		"method": "GET"
+	},
+
+	"/links": {
+		"controller": "links",
+		"callback": "getAll",
+		"method": "GET"
+	},
+
+	"/links/:id": {
+		"controller": "links",
+		"callback": "getSingle",
+		"method": "GET"
+	}
+}
