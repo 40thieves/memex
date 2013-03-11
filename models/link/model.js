@@ -1,9 +1,10 @@
 var mongoose = require('mongoose')
 ,	db       = require('../../lib/db')
+,	Schema   = mongoose.Schema
 ,	schema
 ;
 
-schema = mongoose.Schema({
+schema = Schema({
 	title: {
 		type: String,
 		required: true
@@ -17,4 +18,3 @@ schema = mongoose.Schema({
 	updated_at: Date,
 	deleted_at: Date
 });
-
