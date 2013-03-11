@@ -18,7 +18,7 @@ exports.before = function(req, res, next) {
 };
 
 exports.getAll = function(req, res, next) {
-
+	res.send('<html>Hello World</html>');
 };
 
 exports.getSingle = function(req, res, next) {
