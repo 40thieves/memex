@@ -1,42 +1,28 @@
 var mongoose = require('mongoose')
 ,	Model    = require('../models/link/model').model
+,	query
 ;
 
 exports.name = 'links';
 exports.view = 'link';
 
 exports.before = function(req, res, next) {
-	var id = req.params.link_id;
-
-	if ( ! id)
-		return next(new Error('Model not found'));
-
-	// Get model
-	next();
-
-	/*
+	// Set up query
+	query = Model.find();
 	
-	Alternative idea - use `before` function to set up model? (also validate/filter?)
-	Then in called function, fetch actual models - gets correct models based on call (single/all models)
-
-	 */
+	next();
 };
 
 exports.getAll = function(req, res, next) {
-	var query = Model.find();
-
-	query.exec(function(err, links) {
-		if (err)
-			return next(err);
-
-		res.send(links);
-	});
-
-	// res.send('<html>Hello World</html>');
+	execute(res, next);
 };
 
 exports.getSingle = function(req, res, next) {
-	
+	var id = req.params.id;
+
+	query.where('title').equals('Test 1');
+
+	execute(res, next);
 };
 
 exports.postSingle = function(req, res, next) {
@@ -49,4 +35,18 @@ exports.putSingle = function(req, res, next) {
 
 exports.deleteSingle = function(req, res, next) {
 
+};
+
+execute = function(res, next) {
+	query.exec(function(err, links) {
+		if (err) {
+			console.log(err);
+			return next(err);
+		}
+
+		if ( ! links.length)
+			return next(404, 'Not found');
+
+		res.send(links);
+	});
 };
