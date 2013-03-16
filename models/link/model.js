@@ -4,7 +4,8 @@ var mongoose = require('mongoose')
 ,	schema
 ;
 
-schema = Schema({
+schema = new mongoose.Schema({
+	// TODO: add id
 	title: {
 		type: String,
 		required: true
@@ -18,3 +19,5 @@ schema = Schema({
 	updated_at: Date,
 	deleted_at: Date
 });
+
+exports.model = mongoose.model('Link', schema);

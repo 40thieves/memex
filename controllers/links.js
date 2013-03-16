@@ -1,5 +1,8 @@
-var model = require('../../models/link/link');
+var mongoose = require('mongoose')
+,	Model    = require('../models/link/model').model
+;
 
+exports.name = 'links';
 exports.view = 'link';
 
 exports.before = function(req, res, next) {
@@ -20,9 +23,16 @@ exports.before = function(req, res, next) {
 };
 
 exports.getAll = function(req, res, next) {
-	
+	var query = Model.find();
 
-	res.send('<html>Hello World</html>');
+	query.exec(function(err, links) {
+		if (err)
+			return next(err);
+
+		res.send(links);
+	});
+
+	// res.send('<html>Hello World</html>');
 };
 
 exports.getSingle = function(req, res, next) {
