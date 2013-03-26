@@ -15,5 +15,17 @@
 		"controller": "links",
 		"callback": "getSingle",
 		"method": "GET"
+	},
+
+	"/tags": {
+		"controller": "tags",
+		"callback": "getAll",
+		"method": "GET"
+	},
+
+	"/tags/:id": {
+		"controller": "tags",
+		"callback": "getSingle",
+		"method": "GET"
 	}
 }

@@ -5,7 +5,10 @@ var mongoose = require('mongoose')
 ;
 
 schema = new mongoose.Schema({
-	// TODO: add id
+	id: {
+		type: Number,
+		required: true
+	},
 	title: {
 		type: String,
 		required: true
