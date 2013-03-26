@@ -24,7 +24,7 @@ tagsController = {
 
 		query.where('id').equals(id);
 
-		execute(res, next);
+		tagsController.execute(res, next);
 	},
 
 	postSingle: function(req, res, next) {
