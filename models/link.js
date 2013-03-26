@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-,	db       = require('../../lib/db')
+,	db       = require('../lib/db')
 ,	Schema   = mongoose.Schema
 ,	schema
 ;

@@ -1,5 +1,5 @@
 var mongoose = require('mongoose')
-,	Model    = require('../models/link/model').model
+,	Model    = require('../models/link').model
 ,	query
 ;
 
